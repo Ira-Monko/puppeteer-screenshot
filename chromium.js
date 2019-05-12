@@ -12,7 +12,8 @@ async function getScreenshot(url, type, quality, fullPage) {
   await page.goto(url);
   await page.evaluate(() => (document.body.style.background = 'transparent'));
   await page.waitFor(1500);
-  const file = await page.screenshot({ type, quality, fullPage });
+  // const file = await page.screenshot({ type, quality, fullPage });
+  const file = await page.screenshot({ fullPage: true });
   await browser.close();
   return file;
 }
